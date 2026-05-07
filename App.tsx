@@ -8,6 +8,7 @@ import type { AppDispatch, RootState } from './src/store/store';
 import { TodoScreen } from './src/screens/TodoScreen';
 import { loadTodosFromStorage } from './src/store/store';
 import { saveData } from './src/utils/storage';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 function MainApp() {
   const dispatch = useDispatch<AppDispatch>();
@@ -34,7 +35,9 @@ function MainApp() {
 export default function App() {
   return (
     <Provider store={store}>
-      <MainApp />
+      <SafeAreaView style={{ flex: 1, paddingTop: 10 }}>
+        <MainApp />
+      </SafeAreaView>
     </Provider>
   );
 }

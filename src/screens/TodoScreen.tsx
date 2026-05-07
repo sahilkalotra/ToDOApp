@@ -22,7 +22,6 @@ import {
   undoDelete,
 } from '../store/todosSlice';
 import type { Todo } from '../types';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 const UNDO_TIME = 5000;
 
@@ -80,7 +79,6 @@ export function TodoScreen() {
   return (
     <KeyboardAvoidingView style={styles.keyboardAvoid}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
-      <SafeAreaView >
         <View style={styles.header}>
           <Text style={styles.title}>ToDoApp</Text>
           {isLoaded ? <TodosProgress /> : <Text style={styles.subTitle}>Loading...</Text>}
@@ -130,7 +128,6 @@ export function TodoScreen() {
             </View>
           </View>
         </Modal>
-      </SafeAreaView>
     </KeyboardAvoidingView>
   );
 }
@@ -140,7 +137,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   safe: {
-    // flex: 1,
+    flex: 1,
     // backgroundColor: '#ffffff',
   },
   header: {
